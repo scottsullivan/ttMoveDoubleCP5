@@ -1,4 +1,4 @@
-ttMoveDoubleCP5
-===============
+ttMoveDouble
+============
 
-Double movement counter with a GUI from Control P5
+double movement counter using functions
