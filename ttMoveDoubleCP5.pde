@@ -2,7 +2,11 @@ import processing.serial.*;
 import cc.arduino.*;
 Arduino arduino;
 
+import controlP5.*;
+ControlP5 controlP5;
+
 int moveCount, moveActive, moveLastState, moveCountB, moveActiveB, moveLastStateB = 0; //establish all of the ints as 0
+float multiplier = 5;
 
 void setup() {
   size(600, 350);
@@ -13,6 +17,8 @@ void setup() {
   fill(#FF8664);
   text("0", 30, 270);
   text("0", 330, 270);
+
+  setupGUI();
 
   //arduino setup
   arduino = new Arduino(this, Arduino.list()[4], 57600);
@@ -46,7 +52,7 @@ void updateCounterDrawing(int countTotal, int xPosition) {
   fill(255, 255, 255); 
   rect(xPosition, 0, 300, 300);
   fill(#FF8664);
-  ellipse((xPosition + 150), 150, (countTotal*5), (countTotal*5)); 
+  ellipse((xPosition + 150), 150, (countTotal * multiplier), (countTotal * multiplier)); 
   text(countTotal, xPosition + 30, 270);
 }
 
